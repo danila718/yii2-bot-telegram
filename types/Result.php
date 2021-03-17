@@ -11,6 +11,8 @@ class Result extends Type
 {
    public $message_id;
 
+   public $edit_date;
+
    private $_from;
 
    private $_chat;
