@@ -234,7 +234,7 @@ class Result extends Type
     /**
      *
      */
-    public function getCaptionEntities()
+    public function getCaption_entities()
     {
          return $this->_caption_entities;
     }
@@ -242,7 +242,7 @@ class Result extends Type
     /**
      *
      */
-    public function setCaptionEntities($value)
+    public function setCaption_entities($value)
     {
          $this->_caption_entities = new Entities($value);
     }
