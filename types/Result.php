@@ -47,6 +47,8 @@ class Result extends Type
 
    private $_entities;
 
+   private $_caption_entities;
+
    private $_sticker;
 
    private $_reply_markup;
@@ -226,6 +228,23 @@ class Result extends Type
     public function setEntities($value)
     {
          $this->_entities = new Entities($value);
+    }
+
+
+    /**
+     *
+     */
+    public function getCaptionEntities()
+    {
+         return $this->_caption_entities;
+    }
+
+    /**
+     *
+     */
+    public function setCaptionEntities($value)
+    {
+         $this->_caption_entities = new Entities($value);
     }
 
 
