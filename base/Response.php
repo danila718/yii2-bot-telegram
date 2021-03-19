@@ -3,6 +3,7 @@
 namespace aki\telegram\base;
 
 use aki\telegram\types\Result;
+use yii\base\UnknownPropertyException;
 
 /**
  * 
@@ -37,6 +38,10 @@ class Response extends Type
             
         //     $this->_result = new Result($value);
         // }
-        $this->_result = new Result($value);
+        try {
+            $this->_result = new Result($value);
+        } catch (UnknownPropertyException $ex) {
+            $this->_result = null;
+        }
     }
 }
