@@ -3,9 +3,9 @@ namespace aki\telegram\base;
 
 use aki\telegram\types\CallbackQuery;
 use aki\telegram\types\Chat;
+use aki\telegram\types\ChatMemberUpdated;
 use aki\telegram\types\From;
 use aki\telegram\types\Message;
-use aki\telegram\types\MyChatMember;
 
 /**
  * 
@@ -26,6 +26,8 @@ class Input extends Type
     private $_chat;
 
     private $_my_chat_member;
+
+    private $_chat_member;
 
     public function init()
     {
@@ -91,6 +93,16 @@ class Input extends Type
 
     public function setMy_chat_member($value)
     {
-        $this->_my_chat_member = new MyChatMember($value);
+        $this->_my_chat_member = new ChatMemberUpdated($value);
+    }
+
+    public function getChat_member()
+    {
+        return $this->_my_chat_member;
+    }
+
+    public function setChat_member($value)
+    {
+        $this->_my_chat_member = new ChatMemberUpdated($value);
     }
 }

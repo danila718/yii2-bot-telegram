@@ -4,10 +4,10 @@ namespace aki\telegram\types;
 use yii\base\Component;
 
 /**
- * @author Akbar Joudi <akbar.joody@gmail.com>
- * This object contains information about one member of a chat.
+ * @author Daniil Simonyan <danila718@gmail.com>
+ * This object represents changes in the status of a chat member.
  */
-class MyChatMember extends Component
+class ChatMemberUpdated extends Component
 {
     private $_chat;
 
@@ -18,6 +18,8 @@ class MyChatMember extends Component
     private $_old_chat_member;
 
     private $_new_chat_member;
+
+    private $_invite_link;
 
     /**
      *
@@ -81,5 +83,21 @@ class MyChatMember extends Component
     public function setNew_chat_member($value)
     {
         $this->_new_chat_member = new ChatMember($value);
+    }
+
+    /**
+     *
+     */
+    public function getInvite_link()
+    {
+        return $this->_invite_link;
+    }
+
+    /**
+     *
+     */
+    public function setInvite_link($value)
+    {
+        $this->_invite_link = new ChatInviteLink($value);
     }
 }
