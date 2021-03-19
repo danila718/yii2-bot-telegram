@@ -4,6 +4,7 @@ namespace aki\telegram\base;
 
 use aki\telegram\types\InputMedia\InputMedia;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Psr7\Stream;
 use yii\base\Component;
 
@@ -130,7 +131,11 @@ class TelegramBase extends Component
     public function send($method, $params = null)
     {
         $request_params = $this->initializeParams($params);
-        $response = $this->client->post("/bot" . $this->botToken . $method, $request_params);
+        try {
+            $response = $this->client->post("/bot" . $this->botToken . $method, $request_params);
+        } catch (GuzzleException $ex) {
+            $response = $ex->getResponse();
+        }
         $body = json_decode($response->getBody(), true);
         return $body;
     }
