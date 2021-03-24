@@ -14,9 +14,9 @@ class CallbackQuery extends Type
 {
     public $id;
 
-    public $from;
+    private $_from;
 
-    public $message;
+    private $_message;
 
     public $inline_message_id;
 
@@ -25,4 +25,36 @@ class CallbackQuery extends Type
     public $data;
 
     public $game_short_name;
+
+    /**
+     *
+     */
+    public function getFrom()
+    {
+        return $this->_from;
+    }
+
+    /**
+     *
+     */
+    public function setFrom($value)
+    {
+        $this->_from = new From($value);
+    }
+
+    /**
+     *
+     */
+    public function getMessage()
+    {
+        return $this->_message;
+    }
+
+    /**
+     *
+     */
+    public function setMessage($value)
+    {
+        $this->_message = new Message($value);
+    }
 }
