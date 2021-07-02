@@ -53,6 +53,26 @@ class Result extends Type
 
    private $_reply_markup;
 
+   private $_user;
+   
+   public $author_signature;
+   
+   /**
+    * 
+    */
+    public function getUser()
+    {
+       return $this->_user;
+    }
+ 
+    /**
+     * 
+     */
+    public function setUser($value)
+    {
+       $this->_user = new User($value);
+    }
+
    /**
     * 
     */

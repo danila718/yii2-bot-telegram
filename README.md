@@ -136,9 +136,9 @@ first add to config.php
 <?php
 'components' => [
 	'telegram' => [
-        'class' => 'aki\telegram\Telegram',
-        'botToken' => '112488045:AAGs6CVXgaqC92pvt1u0L6Azfsdfd',
-    ]
+		'class' => 'aki\telegram\Telegram',
+		'botToken' => '112488045:AAGs6CVXgaqC92pvt1u0L6Azfsdfd',
+	]
 ]
 ?>
 ```
@@ -161,16 +161,15 @@ send message width inline keyboard by:
                 ]
             ]
         ]),
-    ] ?>
+    ]); ?>
 ```
 
 send photo by :
 ```php
 <?php 
-$webroot = Yii::getAlias("@webroot");// /home/usr/public_html/web
 Yii::$app->telegram->sendPhoto([
 	'chat_id' => $chat_id,
-	'photo' => $webroot.'/uploads/test.jpg',
+	'photo' => Yii::$app->getBaseUrl().'/uploads/test.jpg',
 	'caption' => 'this is test'
 ]); ?>
 ```
