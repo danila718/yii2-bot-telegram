@@ -11,8 +11,6 @@ class Result extends Type
 {
    public $message_id;
 
-   public $edit_date;
-
    private $_from;
 
    private $_chat;
@@ -56,7 +54,7 @@ class Result extends Type
    private $_user;
    
    public $author_signature;
-   
+
    public $edit_date;
    
    /**
